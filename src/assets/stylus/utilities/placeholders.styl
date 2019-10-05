@@ -1,9 +1,29 @@
-.row {
+.row
     display: flex;
     flex-direction: row;
-}
 
-.column {
+.column
     display: flex;
     flex-direction: column;
-}
+
+.aligned-center-row
+    @extend .row;
+    align-items: center;
+
+.aligned-center-column
+    @extend .column;
+    align-items: center;
+
+.fully-centralized-row
+    @extend .aligned-center-row;
+    justify-content: center;
+
+.fully-centralized-column
+    @extend .aligned-center-column;
+    justify-content: center;
+
+.hamburger-bar
+    width: 100%;
+    height: 2px;
+    background: $white;
+    transition: $default-transition $default-duration;

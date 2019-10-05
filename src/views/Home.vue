@@ -1,20 +1,16 @@
 <template lang="pug">
     
     div
-        Header
+        main-header
 
 </template>
 
 <script>
-import Header from '@/components/FixedComponents/Header'
+import MainHeader from "@/components/FixedComponents/MainHeader";
 
 export default {
-    name: 'Home',
-    
-    components: {
-        Header
-    },
-
-
+  components: {
+    'main-header': MainHeader
+  }
 }
 </script>
