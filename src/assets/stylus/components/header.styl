@@ -1,129 +1,135 @@
 .head 
     @extend .aligned-center-row
-    background: $primary-color
-    padding: $default-padding-spacing
-    justify-content: space-between
+    width 100%
+    background $primary-color
+    padding $default-padding-spacing
+    justify-content space-between
+    position fixed
+    top 0
+    left 0 
 
     &--logo 
-        width: 75px
-        z-index: 999
+        width 75px
+        z-index 999
     
     &__menu 
         @extend .column
-        z-index: 999
-        justify-content: center
-        width: 30px
-        height: 30px
-        position: relative
+        z-index 999
+        justify-content center
+        width 30px
+        height 30px
+        position relative
 
         &--bar 
             @extend .hamburger-bar            
             
             &:before 
                 @extend .hamburger-bar
-                content: ''
-                position: absolute
-                bottom: 23px
+                content ''
+                position absolute
+                bottom 23px
 
             &:after 
                 @extend .hamburger-bar
-                content: ''
-                position: absolute
-                top: 23px
+                content ''
+                position absolute
+                top 23px
             
         &.active .head__menu--bar 
-            background: transparent
+            background transparent
            
             &:before 
-                transform: rotate(-45deg) translate(-11px, 2px)
+                transform rotate(-45deg) translate(-11px, 2px)
             
             &:after 
-                transform: rotate(45deg) translate(-10px, -2px)
+                transform rotate(45deg) translate(-10px, -2px)
         
   
 
         &__items 
             @extend .fully-centralized-column
-            background: $primary-color
-            position: absolute
-            left: 0
-            top: 0
-            width: 100%
-            height: 100vh
-            display: none
+            background $primary-color
+            position absolute
+            left 0
+            top 0
+            width 100%
+            height 100vh
+            display none
 
             &.visible 
-                display: flex
+                display flex
                       
             &--item 
-                align-items: center
-                justify-content: center
-                padding: 20px 0
-                text-align: center
+                align-items center
+                justify-content center
+                padding 20px
+                text-align center
+                color $white
+                font-size $large-font-size
+                font-weight bold
                 
-                color: $white
-                font-size: $large-font-size
-                font-weight: bold
             
         
 @media screen and (min-width: 800px) 
     .head--logo 
-            width: 100px
+            width 100px
         
     .head__menu--bar 
-            display: none
+            display none
         
     .head__menu__items 
-            display: flex
-            position: relative
-            width: 100%
-            height: 100%
-            display: flex
-            flex-direction: row
-            justify-content: flex-end
+            display flex
+            position relative
+            width 100%
+            height 100%
+            display flex
+            flex-direction row
+            justify-content flex-end
 
             &--item 
-                padding: 0
-                font-size: $small-font-size
-                align-items: center
-                margin-right: 3%
-                padding: 5px 12px
-                border-radius: 4px
-                font-weight: lighter
-                cursor: pointer;
+                padding 0
+                font-size $small-font-size
+                align-items center
+                margin-right 3%
+                padding 5px 12px
+                border-radius $default-radius
+                font-weight lighter
+                border transparent $default-border
+                cursor pointer
                 
                 &:last-child 
-                    background: $white
-                    border: $default-border transparent
-                    color: $primary-color
-                    
-                    &:hover
-                        border: $default-border $white
-                        transition: $default-transition $default-duration
-                        background: transparent
-                        color: $white
+                    background $white
+                    color $primary-color
+                    transition $default-transition $default-duration
+                    border $default-border $white
+                    border-radius $default-radius
+                    box-shadow $default-shadow
+                    cursor pointer
+                    font-weight: bold
+                &:hover
+                    @extend .filled-button
                 
 
 @media screen and (min-width: 1024px)    
     .head
-        padding: 1% 5%;
+        padding 1% 5%
 
         &--logo 
-            width: 120px
+            width 120px
 
         &__menu__items--item 
-            font-size: $default-font-size
+            font-size $default-font-size
 
    
 @media screen and (min-width: 1280px)
     .head 
-        padding: 1% $large-padding-horizontal 
+        padding 1% $large-padding-horizontal 
 
 
-@media screen and (min-width: 1600px)
+@media screen and (min-width 1600px)
     .head--logo 
-        width: 125px
+        width 125px
 
     .head__menu__items--item 
-        font-size: $medium-font-size
+        font-size $medium-font-size
 
