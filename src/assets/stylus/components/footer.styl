@@ -1,0 +1,101 @@
+.default-footer
+    width 100%
+    padding $default-padding-spacing
+    text-align: center
+
+    &--title
+        color $grey
+        font-size $default-font-size
+        margin-top 15px
+    
+    &--text
+        display none
+    
+    &__content
+        @extend .row
+        flex-wrap: wrap
+        padding 5% 10%
+        justify-content: space-around
+
+
+        &__item
+            width 90px
+            height 40px
+            margin-top 15px
+            
+            &--icon
+                height 100%
+                width 100%
+        
+
+@media screen and (min-width: 360px)
+    .default-footer__content
+        padding 5% 15%
+
+
+@media screen and (min-width: 420px)
+    .default-footer__content__item
+        width 110px
+
+
+@media screen and (min-width: 640px)
+    .default-footer--title
+        font-size: $large-font-size
+
+    .default-footer__content__item
+        width 140px
+        height 55px
+
+@media screen and (min-width: 800px)
+    .default-footer
+        display flex
+        flex-direction row 
+        align-items center
+        padding 3.5% 10%
+        justify-content space-between
+        
+        &--title
+            display none
+
+        &--text
+            display flex
+            font-size $paragraph-font-size
+            width 50%
+
+        &__content
+            padding 0
+            width 50%
+            
+            &__item
+                flex-wrap: nowrap
+                width 80px
+                height 40px
+                padding 0
+                
+                &:last-child
+                    display none
+                
+
+@media screen and (min-width: 1024px)
+    .default-footer
+        padding 3.5% 12%
+
+        &--text
+            font-size $default-font-size
+        
+    
+        .default-footer__content__item
+            width 110px
+        
+
+@media screen and (min-width: 1280px)
+    .default-footer__content
+        width 40%
+
+        &__item
+            height 50px
+
+
+@media screen and (min-width: 1360px)
+        .default-footer
+            padding 3.5% 15%

@@ -7,7 +7,8 @@
             div.head__menu--bar
 
         nav.head__menu__items( ref="menuItems" )
-            div.head__menu__items--item( v-for="(item, index) in navigationItems") {{ item.name }}
+            div.head__menu__items--item( v-for="(item, index) in navigationItems" ) 
+              a( :href="item.url" target="_blank") {{ item.name }}
 
 </template>
 
@@ -16,11 +17,10 @@ export default {
   data() {
     return {
       navigationItems: [
-        { name: "Melhor Envio" },
-        { name: "Login" },
-        { name: "Cadastre-se" }
+        { name: "Melhor Envio", url: 'https://www.melhorenvio.com.br/' },
+        { name: "Login", url: 'https://www.melhorrastreio.com.br/login' },
+        { name: "Cadastre-se", url: 'https://www.melhorrastreio.com.br/register' }
       ],
-      hamburgerActive: false,
     }
   },
 
@@ -30,5 +30,5 @@ export default {
       this.$refs.menuItems.classList.toggle("visible")
     }
   }
-};
+}
 </script>
