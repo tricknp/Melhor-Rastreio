@@ -3,20 +3,20 @@
     section
         main-header
         home
-        main-footer
+        transporters-footer
 
 </template>
 
 <script>
 import MainHeader from "@/components/FixedComponents/MainHeader";
 import Home from '@/components/Home/Home'
-import MainFooter from '@/components/FixedComponents/MainFooter'
+import FooterWithTransporters from '@/components/FixedComponents/FooterWithTransporters'
 
 export default {
   components: {
     'main-header': MainHeader,
     'home': Home,
-    'main-footer': MainFooter
+    'transporters-footer': FooterWithTransporters
   }
 }
 </script>
