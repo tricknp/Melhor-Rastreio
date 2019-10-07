@@ -1,24 +1,30 @@
 <template lang="pug">
     section 
-        h2(v-show="!tracking.status") loading
-        h1 {{ tracking.status }}
+        tracking-header
     
 </template>
 
-<script>                                                                
+<script>                             
+
+
 import { mapActions, mapState } from 'vuex'
+import TrackingHeader from '../components/FixedComponents/TrackingHeader'
 
 export default {
+    components: {
+        'tracking-header': TrackingHeader 
+    },
+    
     mounted(){
-        this.setTracking()     
+        this.setTracking() 
     },
 
     computed: {
-        ...mapState('tracking', ['tracking'])
+        ...mapState('tracking', ['tracking']),
     },
 
     methods: {
-        ...mapActions('tracking', ['setTracking'])
+        ...mapActions('tracking', ['setTracking']),
     }
 }
 </script>

@@ -46,3 +46,32 @@
         color $white        
 
 
+.commom-header
+    @extend .aligned-center-row
+    position fixed
+    top 0
+    left 0
+    justify-content: space-between
+    width 100%
+    padding $default-padding-spacing
+    z-index 999
+    
+    @media screen and (min-width: 1024px)    
+        padding 1% 5%
+
+    @media screen and (min-width: 1280px)
+        padding 1% $large-padding-horizontal 
+
+
+.responsive-logo
+    width 75px
+    z-index 999    
+
+    @media screen and (min-width: 800px) 
+        width 100px
+    
+    @media screen and (min-width: 1024px)  
+        width 110px
+    
+    @media screen and (min-width 1600px)
+        width 115px

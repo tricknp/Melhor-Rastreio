@@ -1,21 +1,13 @@
 .head 
-    @extend .aligned-center-row
-    width 100%
+    @extend .commom-header
     background $primary-color
-    padding $default-padding-spacing
-    justify-content space-between
-    position fixed
-    top 0
-    left 0 
-    z-index 999
 
     &--logo 
-        width 75px
-        z-index 999
+        @extend .responsive-logo
     
     &__menu 
         @extend .column
-        z-index 999
+        z-index 4
         justify-content center
         width 30px
         height 30px
@@ -71,10 +63,7 @@
                 
             
         
-@media screen and (min-width: 800px) 
-    .head--logo 
-            width 100px
-        
+@media screen and (min-width: 800px)  
     .head__menu--bar 
             display none
         
@@ -119,25 +108,10 @@
                 
 
 @media screen and (min-width: 1024px)    
-    .head
-        padding 1% 5%
-
-        &--logo 
-            width 120px
-
-        &__menu__items--item 
-            font-size $default-font-size
-
-   
-@media screen and (min-width: 1280px)
-    .head 
-        padding 1% $large-padding-horizontal 
-
+    .head__menu__items--item 
+        font-size $default-font-size
 
 @media screen and (min-width 1600px)
-    .head--logo 
-        width 125px
-
     .head__menu__items--item 
         font-size $medium-font-size
 

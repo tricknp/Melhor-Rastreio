@@ -1,0 +1,29 @@
+.tracking-head
+    @extend .commom-header
+    box-shadow $default-shadow
+    color $dark-grey
+    
+    &--logo 
+        @extend .responsive-logo
+    
+    &__info
+        
+        @extend .column
+        align-items flex-end
+
+        &--transporter
+            font-size $small-font-size
+        
+        &--code 
+            font-size $medium-font-size
+            font-weight bold
+
+
+@media screen and (min-width: 640px)
+    .tracking-head__info--transporter
+        font-size $medium-font-size
+    
+    .tracking-head__info--code
+        font-size $large-font-size
+        
+    

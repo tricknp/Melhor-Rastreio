@@ -9,7 +9,7 @@
                
                 p.home__container__content--description Um serviço de rastreio de encomendas totalmente gratuito
                
-                router-link( :to="{name:'tracking'}" )
+                router-link( :to="{ name:'tracking' }" )
                     button.home__container__content--button 
 
             div.home__container__map
