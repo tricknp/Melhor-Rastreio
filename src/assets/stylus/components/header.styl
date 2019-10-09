@@ -1,13 +1,14 @@
 .head 
     @extend .commom-header
     background $primary-color
+    z-index $index-after-all
 
     &--logo 
         @extend .responsive-logo
     
     &__menu 
         @extend .column
-        z-index 4
+        z-index $index-after
         justify-content center
         width 30px
         height 30px

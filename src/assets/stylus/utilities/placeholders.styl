@@ -54,6 +54,7 @@
     justify-content: space-between
     width 100%
     padding $default-padding-spacing
+    z-index: $index-after-all
     
     @media screen and (min-width: 1024px)    
         padding 1% 5%
@@ -64,7 +65,7 @@
 
 .responsive-logo
     width 75px
-    z-index 999    
+    z-index $index-after-all    
 
     @media screen and (min-width: 800px) 
         width 100px

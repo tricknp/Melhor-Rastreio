@@ -15,7 +15,7 @@
                 span.timeline__item__content--status( :class="toggleStatus(track)" ) {{ track.status }}    
                 span.timeline__item__content--date(
                   v-show="currentStatus.includes(track.status)"
-                ) {{ track.status === tracking.status ? 'atualmente' : '01/03/1998 13:30' }}
+                ) {{ track.status === tracking.status ? 'atualmente' : 'falta fazer isso' }}
 
             div.timeline__item__progress( :class="toggleProgress(track)" )
 
@@ -24,6 +24,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex"
+import { dateTimeFormater } from '../../services/dates'
 
 export default {
   data() {
