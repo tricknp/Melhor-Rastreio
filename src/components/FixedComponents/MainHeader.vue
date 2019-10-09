@@ -7,7 +7,7 @@
             div.head__menu--bar
 
         nav.head__menu__items( ref="menuItems" )
-            div.head__menu__items--item( v-for="(item, index) in navigationItems" ) 
+            div.head__menu__items--item( v-for="(item, index) in navigationItems" :key="index") 
               a( :href="item.url" target="_blank") {{ item.name }}
 
 </template>

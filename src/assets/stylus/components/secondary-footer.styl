@@ -1,0 +1,69 @@
+.secondary-footer
+    @extend .aligned-center-column
+    width 100%
+    height 100%
+    background $primary-color
+    padding 5%
+    color $white
+    font-size $small-font-size
+
+    &__left
+        @extend .aligned-center-column
+        
+        &--item
+            margin-top 10px
+            transition: $default-transition $default-duration
+            cursor pointer
+
+            &:hover
+                text-decoration: underline
+
+
+    &__center
+        @extend .aligned-center-column
+        padding 40px 0
+
+        &--logo
+            width 90px
+    
+    &__right
+        @extend .aligned-center-column
+        
+        &--text
+            margin-top 10px
+
+        &--link
+            margin-top 10px
+            transition: $default-transition $default-duration
+            cursor pointer
+
+            &:hover
+                text-decoration: underline
+
+            
+
+
+
+
+
+@media screen and (min-width: 800px)
+    .secondary-footer
+        flex-direction row
+        justify-content: space-between
+
+        &__center
+            padding 0
+            &--logo
+                width 120px
+        
+        &__left,
+        &__right
+            align-items flex-start
+
+
+@media screen and (min-width: 1280px)
+    .secondary-footer
+        padding 3% $large-padding-horizontal
+        
+
+

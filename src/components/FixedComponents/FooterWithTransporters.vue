@@ -8,7 +8,7 @@
 
         div.default-footer__content    
             
-            div.default-footer__content__item( v-for="(transporter, index) in transporters" )
+            div.default-footer__content__item( v-for="(transporter, index) in transporters" :key="index" )
                 img.default-footer__content__item--icon( 
                     :src="require(`../../assets/imgs/transporters/${transporter.name}.svg`)" 
                     :alt="transporter.name" 

@@ -1,0 +1,110 @@
+.timeline
+    height 100px
+    margin-top 20px
+    @extend .row
+    justify-content space-between
+    // align-items: flex-start
+    display none
+
+    &__item
+        @extend .row
+        align-items flex-start
+        height 100px
+        position relative
+
+        &__content
+            @extend .aligned-center-column
+
+            &--icon
+                width 35px
+                position relative
+
+                &:before
+                    content ''
+                    position absolute
+                    z-index -1
+                    top 0
+                    left 2px
+                    width 30px
+                    height 100%
+                    background $white
+
+            
+            &--status
+                text-transform capitalize
+                font-size $paragraph
+                padding 5px 0  
+
+                &.active
+                    color $primary-color
+
+                &.pendent 
+                    color $clear-grey         
+            
+            &--date
+                font-size .8em
+                color $dark-grey
+            
+
+        &__progress
+            width 195px
+            height 2px
+            position: absolute
+            left 35px
+            top 18%
+            z-index -2
+
+
+            &.current
+                background $linear-progress-gradient
+            
+            &.completed
+                background $primary-color
+
+            &.pendent
+                background $clear-grey
+            
+            &.last
+                display: none
+            
+                
+@media screen and (min-width: 800px)  
+    .timeline
+        display flex
+
+
+@media screen and (min-width: 920px)  
+    .timeline__item__progress
+        left 45px
+        width 210px
+
+@media screen and (min-width: 1024px)  
+    .timeline__item__progress
+        left 45px
+        width 240px
+
+@media screen and (min-width: 1170px)  
+    .timeline__item__progress
+        left 45px
+        width 275px
+
+@media screen and (min-width: 1400px)  
+    .timeline__item__progress
+        left 45px
+        width 300px
+
+@media screen and (min-width: 1590px)  
+    .timeline__item__progress
+        left 50px
+        width 330px
+
+
+@media screen and (min-width: 1750px)  
+    .timeline__item__progress
+        left 50px
+        width 360px
+
+@media screen and (min-width: 1900px)  
+    .timeline__item__progress
+        left 50px
+        width 390px
