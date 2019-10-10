@@ -4,6 +4,7 @@
     height 100vh
     background $primary-color  
     padding $default-padding-spacing
+    overflow hidden
 
     &__container 
         @extend .fully-centralized-column
@@ -16,7 +17,7 @@
 
             &--title
                 font-size $title-font-size
-                font-weight bold
+                font-weight $bold
             
             &--description
                 margin-top 15px
@@ -27,7 +28,7 @@
                 width 210px
                 padding 10px
                 font-size $small-font-size
-                font-weight bold
+                font-weight $bold
                 margin 35px 0
                 text-transform uppercase
 
@@ -78,7 +79,7 @@
                 &--title
                     width 100%
                     position relative
-                    padding-right 35% 
+                    padding-right 30% 
                     
                     &:after
                         content ''
@@ -131,7 +132,7 @@
         padding 3% 12%
         
         &__container__content--title 
-            padding-right 45%
+            padding-right 40%
 
             &:after
                 width 15%

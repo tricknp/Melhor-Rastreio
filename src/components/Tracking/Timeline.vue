@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 import { dateTimeFormater } from "../../services/dates";
 
 export default {
@@ -40,11 +40,13 @@ export default {
   },
 
   computed: {
-    ...mapState("tracking", ["tracking"])
+    ...mapState("tracking", ["tracking"]),
+    ...mapGetters("tracking", ["getTrackingStatus"]),
   },
 
   mounted() {
-    this.setTracking(), this.getTracking();
+    this.setTracking(),
+    this.getTrackingStatus.then(res => this.currentStatus = res)
   },
 
   methods: {
@@ -103,15 +105,6 @@ export default {
     },
 
     /*
-     * Esse metodo basicamente estará listando um array de status do rastreamento
-     * exemplo de response: ['coletado', 'encaminhado', 'postado' ...]
-     */
-    getTracking() {
-      const statusCompleteds = this.tracking.events.map(el => el.status);
-      this.currentStatus = statusCompleteds;
-    },
-
-    /*
      *  @param {Object} track -  retornará todos objetos que o for percorrer
      *  @param {Number} index - indice de cada objeto que o for percorrer
      *
@@ -122,10 +115,8 @@ export default {
      *
      *  O metodo "dateTimeFormater" é só um utility que formata a data
      */
-    trackDate(track, index) {
-      console.log("asss");
-      const dateHistory =
-        track.status !== this.tracking.status
+     trackDate(track, index) {
+      const dateHistory = track.status !== this.tracking.status
           ? this.tracking.events[index] &&
             dateTimeFormater(this.tracking.events[index].created_at)
           : "atualmente";

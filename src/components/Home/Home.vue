@@ -1,6 +1,12 @@
 <template lang="pug">
     
     main.home
+        
+        div.left-gradient-line
+        
+        div.center-gradient-line
+        
+        
         div.home__container
 
             div.home__container__content
