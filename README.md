@@ -1,5 +1,3 @@
-# Melhor Rastreio
-
 ![logo](https://github.com/tricknp/Melhor-Rastreio/blob/master/src/assets/imgs/colorful-logo.svg)
 
 
