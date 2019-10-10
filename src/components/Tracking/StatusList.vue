@@ -6,49 +6,87 @@
             span.list__header--status Status
             span.list__header--locale Movimentação
 
-        div.list__item
+        div.list__item( v-for="track in tracking.events" )
             div.list__item__status
-                img.icon(src="../../assets/imgs/status/postado.svg")
+                img.icon( 
+                    :src="require(`../../assets/imgs/status/${track.status}.svg`)" 
+                    :class="toggleStatus(track)"
+                )
                 div.list__item__status__content
-                    span.list__item__status__content--title Objeto encaminhado
-                    span.list__item__status__content--date 23/09/2019 11:50
+                    span.list__item__status__content--title {{ statusText(track) }}
+                    span.list__item__status__content--date {{ trackDate(track) }}
 
             div.list__item__locale
-                span.list__item__locale--text em CTCE PORTO ALEGRE - POA/RS
+                span.list__item__locale--text {{ trackLocale(track) }}
 
         
-        div.list__item
-            div.list__item__status
-                img.icon(src="../../assets/imgs/status/postado.svg")
-                div.list__item__status__content
-                    span.list__item__status__content--title Objeto encaminhado
-                    span.list__item__status__content--date 23/09/2019 11:50
-
-            div.list__item__locale
-                span.list__item__locale--text em CTCE PORTO ALEGRE - POA/RS
-        
-
-        div.list__item
-            div.list__item__status
-                img.icon(src="../../assets/imgs/status/postado.svg")
-                div.list__item__status__content
-                    span.list__item__status__content--title Objeto encaminhado
-                    span.list__item__status__content--date 23/09/2019 11:50
-
-            div.list__item__locale
-                span.list__item__locale--text em CTCE PORTO ALEGRE - POA/RS
-    
-    
 
                 
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
+import { dateTimeFormater } from "../../services/dates";
 
 export default {
   computed: {
     ...mapState("tracking", ["tracking"])
+  },
+
+  mounted() {
+    this.setTracking();
+  },
+
+  methods: {
+    ...mapActions("tracking", ["setTracking"]),
+
+    trackDate: track => dateTimeFormater(track.created_at),
+
+    statusText(track) {
+      return track.status === "coletado"
+        ? "Coleta realizada"
+        : `Objeto ${track.status}`;
+    },
+
+    toggleStatus(track) {
+      let className = "";
+
+      switch (track.status) {
+        case "coletado":
+          className = "black";
+          break;
+
+        case "postado":
+          className = "orange";
+          break;
+
+        case "encaminhado":
+          className = "blue";
+          break;
+      }
+
+      return className;
+    },
+
+    trackLocale(track) {
+      let prefix = "";
+
+      switch (track.status) {
+        case "coletado":
+          prefix = "por";
+          break;
+
+        case "postado":
+          prefix = "em";
+          break;
+
+        case "encaminhado":
+          prefix = "para";
+          break;
+      }
+
+      return `${prefix} ${track.location}`;
+    }
   }
 };
 </script>

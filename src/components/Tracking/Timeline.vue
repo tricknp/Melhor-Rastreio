@@ -44,7 +44,8 @@ export default {
   },
 
   mounted() {
-    this.setTracking(), this.getTracking();
+    this.setTracking(), 
+    this.getTracking();
   },
 
   methods: {
@@ -120,6 +121,7 @@ export default {
      *  O metodo "dateTimeFormater" é só um utility que formata a data
      */
     trackDate(track, index) {
+      console.log('asss')
       const dateHistory = track.status !== this.tracking.status
           ? this.tracking.events[index] &&
               dateTimeFormater(this.tracking.events[index].created_at)
