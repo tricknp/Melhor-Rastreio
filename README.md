@@ -1,9 +1,13 @@
 # Melhor Rastreio
 
-## Instale as dependencias
+![logo](https://github.com/tricknp/Melhor-Rastreio/blob/master/src/assets/imgs/colorful-logo.svg)
+
+
+### Instale as dependencias
 ```
 npm install
 ```
+
 
 ### Inicie o servidor 
 ```
