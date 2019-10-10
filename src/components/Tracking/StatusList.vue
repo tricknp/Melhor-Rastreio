@@ -40,14 +40,30 @@ export default {
   methods: {
     ...mapActions("tracking", ["setTracking"]),
 
+    /*
+     *  @param {Object} track -  retornará todos objetos que o for percorrer
+     *
+     *  Retorna a data do rastreio formatada
+     */
     trackDate: track => dateTimeFormater(track.created_at),
 
+    /*
+     *  @param {Object} track -  retornará todos objetos que o for percorrer
+     *
+     *  Verifica se o status do rastreamento, se for coleta ele retornará a string "Coleta realiada",
+     *  caso contrario retornará a String 'Objeto' e o status do rastreamento
+     */
     statusText(track) {
       return track.status === "coletado"
         ? "Coleta realizada"
         : `Objeto ${track.status}`;
     },
 
+    /*
+     *  @param {Object} track -  retornará todos objetos que o for percorrer
+     *
+     *  Verifica o status do rastreamento e atribui uma string que será utilizada no css para cada tipo de status
+     */
     toggleStatus(track) {
       let className = "";
 
@@ -68,6 +84,11 @@ export default {
       return className;
     },
 
+    /*
+     *  @param {Object} track -  retornará todos objetos que o for percorrer
+     *
+     *  Verifica os status do rastreamento e retorna o prefixo de acordo com o status e a sua localização
+     */
     trackLocale(track) {
       let prefix = "";
 

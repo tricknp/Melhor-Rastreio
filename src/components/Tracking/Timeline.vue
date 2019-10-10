@@ -44,37 +44,38 @@ export default {
   },
 
   mounted() {
-    this.setTracking(), 
-    this.getTracking();
+    this.setTracking(), this.getTracking();
   },
 
   methods: {
     ...mapActions("tracking", ["setTracking"]),
-
 
     /*
      *  @param {Object} track -  retornará todos objetos que o for percorrer
      *
      *  Esse é o metodo que irá verificar o andamento da progress bar
      *  Nele é feito uma série de validações para retornar o devido status
-     *  
+     *
      *  Se o track conter o atributo "last", será atribuida a classe 'last', que basicamente irá dar disable nele no css
-     *  
+     *
      *  Se os status de rastreiamento contem os status do track e se os status não forem iguais irá retornar uma string 'completed',
      *  que basicamente será um status que já está concluido
-     * 
+     *
      *  Se o status do track for igual ao status do rastreamento retornará uma string 'current', que basicamente
      *  vai ser a classe atribuida com o gradient de progress no css
-     *  
-     *  Se os status de rastreiamento NÃO contem os status do track e se os status não forem iguais irá retornar uma string 'pendent', que 
+     *
+     *  Se os status de rastreiamento NÃO contem os status do track e se os status não forem iguais irá retornar uma string 'pendent', que
      *  será a classe atribuida no css para "rastreamento pendente"
      */
     toggleProgress(track) {
       if (track.last) {
         return "last";
       }
-    
-      if ( this.currentStatus.includes(track.status) && this.tracking.status !== track.status) {
+
+      if (
+        this.currentStatus.includes(track.status) &&
+        this.tracking.status !== track.status
+      ) {
         return "completed";
       }
 
@@ -82,11 +83,13 @@ export default {
         return "current";
       }
 
-      if ( !this.currentStatus.includes(track.status) && this.tracking.status !== track.status ) {
+      if (
+        !this.currentStatus.includes(track.status) &&
+        this.tracking.status !== track.status
+      ) {
         return "pendent";
       }
     },
-
 
     /*
      *  @param {Object} track -  retornará todos objetos que o for percorrer
@@ -98,7 +101,6 @@ export default {
     toggleStatus(track) {
       return this.currentStatus.includes(track.status) ? "active" : "pendent";
     },
-
 
     /*
      * Esse metodo basicamente estará listando um array de status do rastreamento
@@ -121,10 +123,11 @@ export default {
      *  O metodo "dateTimeFormater" é só um utility que formata a data
      */
     trackDate(track, index) {
-      console.log('asss')
-      const dateHistory = track.status !== this.tracking.status
+      console.log("asss");
+      const dateHistory =
+        track.status !== this.tracking.status
           ? this.tracking.events[index] &&
-              dateTimeFormater(this.tracking.events[index].created_at)
+            dateTimeFormater(this.tracking.events[index].created_at)
           : "atualmente";
 
       return dateHistory;
