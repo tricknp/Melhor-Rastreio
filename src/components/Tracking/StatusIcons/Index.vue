@@ -18,14 +18,4 @@ export default {
       DeliveredIcon
   },
 
-    beforeCreate(){
-        this.hello()
-    },
-
-    methods: {
-        hello(){
-            console.log('hello')
-        }
-    }
-
 };

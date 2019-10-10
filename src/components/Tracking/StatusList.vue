@@ -44,19 +44,11 @@
 </template>
 
 <script>
-import {  mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
-  created() {
-    console.log('tem tracking?', this.tracking)
-  },
-
   computed: {
     ...mapState("tracking", ["tracking"])
-  },
-
-  methods: {
-    
   }
 };
 </script>
